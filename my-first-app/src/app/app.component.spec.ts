@@ -20,8 +20,9 @@ describe('AppComponent', () => {
   }));
   it('should render title in an h3 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h3').textContent).toContain('Welcome to My First App!');
+    expect(compiled.querySelector('h3').textContent).toContain('Welcome to ' + app.name + '!');
   }));
 });
