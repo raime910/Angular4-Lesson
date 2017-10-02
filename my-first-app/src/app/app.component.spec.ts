@@ -18,10 +18,10 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.name).toEqual('My First App');
   }));
-  it('should render title in a p tag', async(() => {
+  it('should render title in an h3 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain('Welcome to My First App!');
+    expect(compiled.querySelector('h3').textContent).toContain('Welcome to My First App!');
   }));
 });
