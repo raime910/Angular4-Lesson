@@ -22,6 +22,15 @@
 </div>
 
 <!--<p>{{allowNewServer}}</p>-->
-<p>{{ serverCreationStatus }}</p>
+
+<!--ngIf requires true or false-->
+<!--ngIf="<condition>; else <template tag>-->
+
+<p *ngIf="serverCreated; else enterServerInfo">Server {{ serverName }} has been created.</p>
+
+<ng-template #enterServerInfo>
+  <p>Please enter the server information.</p>
+</ng-template>
+
 <app-server></app-server>
 <app-server></app-server>
