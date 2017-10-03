@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-12">
+    <button class="btn btn-warning" (click)="toggleDetail($event)">
+      Display Details
+    </button>
+    <br />
+    <div *ngIf="isVisible">
+      <br />
+      <p [ngClass]="{ override: isOverride() }">
+        [{{ getLastClickDt() }}] Secret Password = tuna
+      </p>
+    </div>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-condensed">
+      <tr>
+        <th>Id</th>
+        <th>Date Time</th>
+      </tr>
+      <tr *ngFor="let clickLog of clickLogs">
+        <td>{{ clickLog.id }}</td>
+        <td>{{ clickLog.timestamp }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

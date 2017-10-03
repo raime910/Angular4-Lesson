@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {ServerComponent} from './server/server.component';
 import {ServersComponent} from './servers/servers.component';
 import {LoginComponent} from './login/login.component';
+import {ToggleComponent} from './toggle/toggle.component';
 
 // rma - this is where we unlock features in our angular app.
 
@@ -19,7 +20,8 @@ import {LoginComponent} from './login/login.component';
     // alerts
     SuccessAlertComponent,
     WarningAlertComponent,
-    LoginComponent
+    LoginComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,
