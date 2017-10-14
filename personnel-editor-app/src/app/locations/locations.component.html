@@ -1,0 +1,78 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Locations
+  </div>
+  <div class="panel-body">
+    <div class="well well-danger" *ngIf="!isValid">
+      <div *ngFor="let errorMessage of errorMessages">{{ errorMessage.description }}</div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Street 1
+        </label>
+        <input type="text" [(ngModel)]="street1" class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <label>
+          Street 2
+        </label>
+        <input type="text" [(ngModel)]="street2" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 form-group">
+        <label>
+          State
+        </label>
+        <select class="form-control" (ngModelChange)="onStateChange($event)" [(ngModel)]="selectedState">
+          <option *ngFor="let state of states" [ngValue]="state">
+            {{ state.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-lg-3 form-group">
+        <label>
+          City
+        </label>
+        <select class="form-control" [(ngModel)]="selectedCity" [disabled]="selectedState === undefined">
+          <option *ngFor="let availableCity of availableCities" [ngValue]="availableCity">{{ availableCity.name }}</option>
+        </select>
+      </div>
+      <div class="col-lg-3 form-group">
+        <label>
+          Zip
+        </label>
+        <input type="text" class="form-control" [(ngModel)]="zip">
+      </div>
+      <div class="col-lg-3">
+        <label>&nbsp;</label>
+        <br>
+        <button class="btn btn-success" (click)="onSaveAddress($event)">Save</button>
+      </div>
+    </div>
+  </div>
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th width="200px">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let address of addresses">
+      <td>{{ address.street1 }} {{ address.street2 }}</td>
+      <td>{{ address.city.name }}</td>
+      <td>{{ address.state.name }}</td>
+      <td>{{ address.zip }}</td>
+      <td>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

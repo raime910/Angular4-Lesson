@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Roles
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-12 form-group">
+        <label>Select a role to assign</label>
+        <br>
+        <div class="input-group">
+          <select class="form-control" [(ngModel)]="selectedRole" >
+            <option *ngFor="let role of roles" [ngValue]="role">{{ role.name }}</option>
+          </select>
+          <span class="input-group-btn">
+            <button (click)="onAddRoleClick($event)" class="btn btn-success" [disabled]="selectedRole === undefined">
+              Add role
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th width="120px">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let personnelRole of personnelRoles">
+      <td>{{ personnelRole.id }}</td>
+      <td>{{ personnelRole.name }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="onRemoveClick(personnelRole)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
